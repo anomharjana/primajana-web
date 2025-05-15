@@ -111,7 +111,6 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     .cardbox-item:hover {
@@ -140,46 +139,72 @@
       margin-bottom: 0.4rem;
     }
 
-    .button-group {
+    .cardbox-item .buttons {
       display: flex;
       gap: 0.5rem;
       margin-top: auto;
-      flex-wrap: wrap;
     }
 
-    .button-group .primary,
-    .button-group .secondary {
+    .cardbox-item button {
+      border: none;
       padding: 0.5rem 1rem;
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
-      border: none;
       transition: background 0.3s ease;
     }
 
-    .button-group .primary {
+    .cardbox-item button:first-child {
       background-color: #fff;
       color: #800000;
     }
 
-    .button-group .primary:hover {
+    .cardbox-item button:first-child:hover {
       background-color: #f1f1f1;
     }
 
-    .button-group .secondary {
-      background-color: #ffd700;
-      color: #800000;
+    .cardbox-item .free-trial {
+      background-color: #ffcc00;
+      color: #333;
     }
 
-    .button-group .secondary:hover {
-      background-color: #ffe866;
+    .cardbox-item .free-trial:hover {
+      background-color: #e6b800;
     }
 
-    .testimonials blockquote {
+    .testimonials {
+      text-align: center;
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+    }
+
+    .testimonial-item {
+      flex: 0 0 auto;
+      width: 250px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 1rem;
+      scroll-snap-align: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-item blockquote {
       font-style: italic;
-      margin: 1rem 0;
-      border-left: 4px solid #800000;
-      padding-left: 1rem;
+      font-size: 0.95rem;
     }
 
     footer {
@@ -237,7 +262,7 @@
   </section>
 
   <section class="section">
-    <h2>Layanan Kami</h2>
+    <h2 style="margin-bottom: 1.5rem;">Layanan Kami</h2>
     <div class="cardbox">
       <div class="cardbox-item">
         <h3>Bimbingan Belajar</h3>
@@ -247,8 +272,8 @@
           <li>Lomba dan Olimpiade</li>
           <li>CPNS dan Tes Kedinasan</li>
         </ul>
-        <div class="button-group">
-          <button class="primary">Daftar Sekarang</button>
+        <div class="buttons">
+          <button>Daftar Sekarang</button>
         </div>
       </div>
       <div class="cardbox-item">
@@ -259,9 +284,9 @@
           <li>UTBK</li>
           <li>Olimpiade</li>
         </ul>
-        <div class="button-group">
-          <button class="primary">Daftar Sekarang</button>
-          <button class="secondary">Coba Gratis</button>
+        <div class="buttons">
+          <button>Daftar Sekarang</button>
+          <button class="free-trial">Coba Gratis</button>
         </div>
       </div>
     </div>
@@ -269,12 +294,26 @@
 
   <section class="section testimonials">
     <h2>Testimoni Peserta</h2>
-    <blockquote>
-      "Primajana sangat membantu saya lulus ujian masuk PTN. Terima kasih!" – Dinda, Mahasiswa
-    </blockquote>
-    <blockquote>
-      "Materi dan pengajarnya keren. Ebooknya juga sangat bermanfaat." – Rio, Pelajar SMA
-    </blockquote>
+    <div class="testimonial-carousel" id="testimonialCarousel">
+      <div class="testimonial-item">
+        <img src="https://via.placeholder.com/50" alt="Foto Dinda" />
+        <blockquote>
+          "Primajana sangat membantu saya lulus ujian masuk PTN. Terima kasih!"<br>– Dinda, Mahasiswa
+        </blockquote>
+      </div>
+      <div class="testimonial-item">
+        <img src="https://via.placeholder.com/50" alt="Foto Rio" />
+        <blockquote>
+          "Materi dan pengajarnya keren. Ebooknya juga sangat bermanfaat."<br>– Rio, Pelajar SMA
+        </blockquote>
+      </div>
+      <div class="testimonial-item">
+        <img src="https://via.placeholder.com/50" alt="Foto Aisyah" />
+        <blockquote>
+          "Tryout-nya sangat membantu saya mengukur kemampuan. Recommended!"<br>– Aisyah, Peserta CPNS
+        </blockquote>
+      </div>
+    </div>
   </section>
 
   <section class="section" style="text-align: center;">
@@ -286,5 +325,24 @@
   <footer>
     <p>&copy; 2025 Primajana Education. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Carousel otomatis
+    const carousel = document.getElementById('testimonialCarousel');
+    let scrollAmount = 0;
+
+    function autoScroll() {
+      scrollAmount += 260;
+      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+        scrollAmount = 0;
+      }
+      carousel.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    setInterval(autoScroll, 3000); // Ganti testimoni setiap 3 detik
+  </script>
 </body>
 </html>
