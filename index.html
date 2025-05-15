@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primajana Education</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #800000;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .cta-button {
+      background-color: #fff;
+      color: #800000;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      margin-top: 1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #f1f1f1;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .feature-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .service {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .cardbox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .cardbox-item {
+      background-color: #800000;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      width: calc(50% - 0.5rem);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .cardbox-item h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .cardbox-item p {
+      margin-bottom: 0.75rem;
+    }
+
+    .cardbox-item button {
+      background-color: #fff;
+      color: #800000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .cardbox-item button:hover {
+      background-color: #f1f1f1;
+    }
+
+    .testimonials blockquote {
+      font-style: italic;
+      margin: 1rem 0;
+      border-left: 4px solid #800000;
+      padding-left: 1rem;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    @media(min-width: 768px) {
+      .features, .services {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .feature-card {
+        width: 30%;
+      }
+
+      .service {
+        width: 30%;
+      }
+
+      .cardbox-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <<header>
+  <img src="https://via.placeholder.com/100x50?text=Logo" alt="Primajana Logo" style="display:block; margin: 0 auto 1rem; max-width: 100px;">
+  <h1>Primajana Education</h1>
+  <p>Solusi bimbingan belajar, tryout, dan konsultasi terbaik untuk pelajar dan umum</p>
+  <button class="cta-button">Daftar Sekarang</button>
+</header>
+
+
+  <section class="section features">
+    <div class="feature-card">
+      <img src="https://via.placeholder.com/80" alt="Pengajar">
+      <h2>Pengajar Berpengalaman</h2>
+      <p>Dapatkan bimbingan dari pengajar yang ahli dan berpengalaman di bidangnya.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://via.placeholder.com/80" alt="Materi">
+      <h2>Materi Terupdate</h2>
+      <p>Kurikulum disesuaikan dengan perkembangan terbaru dan kebutuhan peserta.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://via.placeholder.com/80" alt="Dukungan">
+      <h2>Dukungan Penuh</h2>
+      <p>Konsultasi dan bantuan belajar tersedia setiap saat.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Penawaran Spesial</h2>
+    <p>Dapatkan diskon khusus pendaftaran bulan ini dan ebook gratis untuk peserta baru!</p>
+  </section>
+
+  <section class="section services">
+    <div class="service">
+      <h3>Bimbingan Belajar</h3>
+      <p>Kelas intensif untuk berbagai mata pelajaran dan jenjang pendidikan.</p>
+      <div class="cardbox">
+        <div class="cardbox-item">
+          <h4>Esai</h4>
+          <p>Latihan menulis esai akademik dan opini dengan bimbingan langsung.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+        <div class="cardbox-item">
+          <h4>Karya Tulis</h4>
+          <p>Pemahaman mendalam dalam membuat karya tulis ilmiah dan populer.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+        <div class="cardbox-item">
+          <h4>Penelitian</h4>
+          <p>Bimbingan merancang dan melaksanakan proyek penelitian secara sistematis.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+        <div class="cardbox-item">
+          <h4>CPNS</h4>
+          <p>Materi persiapan tes CPNS dengan latihan soal dan pembahasan.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <h3>Tryout</h3>
+      <p>Simulasi ujian dengan sistem terkini dan analisis hasil.</p>
+      <div class="cardbox">
+        <div class="cardbox-item">
+          <h4>CPNS</h4>
+          <p>Uji kemampuan dengan soal CPNS terbaru dan analisis hasil otomatis.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <h3>Konsultasi</h3>
+      <p>Bimbingan karir dan akademik secara personal.</p>
+      <div class="cardbox">
+        <div class="cardbox-item">
+          <h4>Menulis</h4>
+          <p>Diskusi mendalam seputar teknik menulis kreatif dan akademik.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+        <div class="cardbox-item">
+          <h4>Beasiswa</h4>
+          <p>Panduan menyusun berkas dan strategi lolos seleksi beasiswa.</p>
+          <button>Daftar Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <h2>Testimoni Peserta</h2>
+    <blockquote>
+      "Primajana sangat membantu saya lulus ujian masuk PTN. Terima kasih!" – Dinda, Mahasiswa
+    </blockquote>
+    <blockquote>
+      "Materi dan pengajarnya keren. Ebooknya juga sangat bermanfaat." – Rio, Pelajar SMA
+    </blockquote>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <h2>Siap Mulai Belajar?</h2>
+    <p>Gabung bersama ratusan peserta lainnya yang telah merasakan manfaat Primajana Education.</p>
+    <button class="cta-button">Gabung Sekarang</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Primajana Education. All rights reserved.</p>
+  </footer>
+</body>
+</html>
