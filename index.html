@@ -51,6 +51,8 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .cta-button:hover {
@@ -337,7 +339,13 @@
   <section class="section" style="text-align: center;">
     <h2>Siap Mulai Belajar?</h2>
     <p>Gabung bersama ratusan peserta lainnya yang telah merasakan manfaat Primajana Education.</p>
-    <button class="cta-button">Hubungi Admin</button>
+    <a
+      href="https://wa.me/+6285935201571?text=Halo%20Admin%20Primajana%2C%20saya%20ingin%20bertanya%20tentang%20layanan."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cta-button"
+      >Hubungi Admin</a
+    >
   </section>
 
   <footer>
@@ -355,7 +363,8 @@
       if (index > items - visibleItems) {
         index = 0;
       }
-      const shift = -(index * (carousel.children[0].offsetWidth + 16)); // item width + margin (margin 0.5rem left & right = 1rem total; here 16px for gap)
+      const itemWidth = carousel.children[0].offsetWidth + 16; // item width + margin (0.5rem left & right = 16px total gap)
+      const shift = -(index * itemWidth);
       carousel.style.transform = `translateX(${shift}px)`;
     }
 
