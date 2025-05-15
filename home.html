@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulasi CAT CPNS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #eae7f8, #f0f4ff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #c7d2fe;
+      padding: 15px;
+      border-bottom: 4px solid #1e3a8a;
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+    header h1 {
+      font-size: 18px;
+      color: #1e3a8a;
+      margin: 0;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #f9fafb;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #1e3a8a;
+    }
+    .card p {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .card button {
+      background-color: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://res.cloudinary.com/djexglfns/image/upload/v1747196445/logocat_phq1rf.png" alt="Logo BKN">
+    <h1>COMPUTER ASSISTED TEST<br>Badan Kepegawaian Negara</h1>
+  </header>
+
+  <div class="container">
+    <h2>Pilih Paket Soal</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Paket Soal 1</h3>
+        <p>110 Soal - TWK, TIU, TKP</p>
+        <button onclick="location.href='paket1.html?paket=paket1.html'">Mulai</button>
+      </div>
+      <div class="card">
+        <h3>Paket Soal 2</h3>
+        <p>110 Soal - TWK, TIU, TKP</p>
+        <button onclick="location.href='paket2.html?paket=paket2.json'">Mulai</button>
+      </div>
+      <div class="card">
+        <h3>Paket Soal 3</h3>
+        <p>110 Soal - TWK, TIU, TKP</p>
+        <button onclick="location.href='paket3.html?paket=paket3.json'">Mulai</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

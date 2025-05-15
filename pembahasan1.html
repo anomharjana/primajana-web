@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soal dan Pembahasan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      background-color: #eef1ff;
+      padding: 10px 20px;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      color: #003366;
+      margin: 0;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .options li {
+      margin-bottom: 0.5rem;
+    }
+
+    .answer {
+      background: #e6ffe6;
+      border-left: 5px solid #2ecc71;
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .pagination button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://res.cloudinary.com/djexglfns/image/upload/v1747196445/logocat_phq1rf.png" alt="Logo BKN">
+  <h1>COMPUTER ASSISTED TEST<br>BADAN KEPEGAWAIAN NEGARA</h1>
+</header>
+
+<div class="card" id="soalCard">
+  <div class="question" id="soalTeks">1. Apa ibu kota Indonesia?</div>
+  <ul class="options" id="pilihanJawaban">
+    <li>A. Surabaya</li>
+    <li>B. Bandung</li>
+    <li>C. Jakarta</li>
+    <li>D. Medan</li>
+  </ul>
+  <div class="answer" id="pembahasan">
+    <strong>Jawaban: C</strong><br>
+    Jakarta adalah ibu kota negara Indonesia.
+  </div>
+</div>
+
+<div class="pagination">
+  <button onclick="sebelumnya()" id="prevBtn" disabled>Sebelumnya</button>
+  <button onclick="berikutnya()" id="nextBtn">Berikutnya</button>
+</div>
+
+<script>
+  const soalData = [
+    {
+      soal: "1. Apa ibu kota Indonesia?",
+      pilihan: ["A. Surabaya", "B. Bandung", "C. Jakarta", "D. Medan"],
+      kunci: "C",
+      pembahasan: "Jakarta adalah ibu kota negara Indonesia."
+    },
+    {
+      soal: "2. Hasil dari 5 + 3 adalah...",
+      pilihan: ["A. 7", "B. 8", "C. 9", "D. 10"],
+      kunci: "B",
+      pembahasan: "Penjumlahan 5 dan 3 menghasilkan 8."
+    }
+  ];
+
+  let index = 0;
+
+  function renderSoal(i) {
+    document.getElementById('soalTeks').textContent = soalData[i].soal;
+    document.getElementById('pilihanJawaban').innerHTML = soalData[i].pilihan.map(p => `<li>${p}</li>`).join('');
+    document.getElementById('pembahasan').innerHTML = `<strong>Jawaban: ${soalData[i].kunci}</strong><br>${soalData[i].pembahasan}`;
+    document.getElementById('prevBtn').disabled = i === 0;
+    document.getElementById('nextBtn').disabled = i === soalData.length - 1;
+  }
+
+  function sebelumnya() {
+    if (index > 0) {
+      index--;
+      renderSoal(index);
+    }
+  }
+
+  function berikutnya() {
+    if (index < soalData.length - 1) {
+      index++;
+      renderSoal(index);
+    }
+  }
+
+  renderSoal(index);
+</script>
+
+</body>
+</html>
