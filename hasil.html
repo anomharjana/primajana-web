@@ -2,8 +2,13 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hasil Ujian</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom, #eaeaea, #eaeaea);
@@ -32,6 +37,7 @@
 
     .container {
       max-width: 800px;
+      width: 95%;
       margin: 40px auto;
       background: white;
       padding: 20px;
@@ -43,6 +49,7 @@
       border: 1px solid #ccc;
       margin-bottom: 30px;
       border-radius: 6px;
+      overflow-x: auto;
     }
 
     .section h2 {
@@ -50,11 +57,13 @@
       background: #f0f0f0;
       padding: 10px;
       border-bottom: 1px solid #ccc;
+      font-size: 16px;
     }
 
     .section table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 15px;
     }
 
     .section td {
@@ -64,6 +73,7 @@
 
     .section td:nth-child(1) {
       width: 40%;
+      font-weight: bold;
     }
 
     .footer, .credit {
@@ -86,6 +96,8 @@
       border-radius: 6px;
       cursor: pointer;
       text-align: center;
+      width: 90%;
+      max-width: 300px;
     }
 
     .btn-download {
@@ -112,6 +124,33 @@
       color: #888;
       margin: 20px 0 10px;
       display: none;
+    }
+
+    /* === Responsif Mobile === */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      header img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      header h1 {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .section h2 {
+        font-size: 15px;
+      }
+
+      .section table td {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -213,7 +252,7 @@
 
     function lihatPembahasan() {
       const paketSoal = localStorage.getItem("paketSoal") || "";
-      const nomor = paketSoal.match(/\d+/); // ambil angka dari nama file
+      const nomor = paketSoal.match(/\d+/);
       if (nomor) {
         const urlPembahasan = `pembahasan${nomor[0]}.html`;
         window.location.href = urlPembahasan;
