@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Primajana Education</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -81,19 +81,6 @@
       margin-bottom: 1rem;
     }
 
-    .services {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .service {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
     .cardbox {
       display: flex;
       flex-wrap: wrap;
@@ -104,19 +91,33 @@
     .cardbox-item {
       background-color: #800000;
       color: #fff;
-      padding: 0.75rem;
+      padding: 1rem;
       border-radius: 8px;
       width: calc(50% - 0.5rem);
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      font-size: 0.95rem;
+      font-size: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .cardbox-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(128, 0, 0, 0.6);
+      z-index: 10;
     }
 
     .cardbox-item h4 {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
 
-    .cardbox-item p {
-      margin-bottom: 0.5rem;
+    .cardbox-item p.description {
+      margin-bottom: 0.75rem;
+    }
+
+    .cardbox-item ul {
+      list-style-type: disc;
+      margin-left: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .cardbox-item button {
@@ -128,6 +129,9 @@
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
     }
 
     .cardbox-item button:hover {
@@ -149,7 +153,7 @@
     }
 
     @media(min-width: 768px) {
-      .features, .services {
+      .features {
         flex-direction: row;
         justify-content: space-between;
       }
@@ -158,19 +162,15 @@
         width: 30%;
       }
 
-      .service {
-        width: 30%;
-      }
-
       .cardbox-item {
-        width: 100%;
+        width: calc(50% - 0.5rem);
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Primajana Logo" style="display:block; margin: 0 auto 1rem; max-width: 100px;">
+    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Primajana Logo" style="display:block; margin: 0 auto 1rem; max-width: 100px;" />
     <h1>Primajana Education</h1>
     <p>Solusi bimbingan belajar, tryout, dan konsultasi terbaik untuk pelajar dan umum</p>
     <button class="cta-button">Daftar Sekarang</button>
@@ -178,79 +178,44 @@
 
   <section class="section features">
     <div class="feature-card">
-      <img src="https://via.placeholder.com/80" alt="Pengajar">
+      <img src="https://via.placeholder.com/80" alt="Pengajar" />
       <h2>Pengajar Berpengalaman</h2>
       <p>Dapatkan bimbingan dari pengajar yang ahli dan berpengalaman di bidangnya.</p>
     </div>
     <div class="feature-card">
-      <img src="https://via.placeholder.com/80" alt="Materi">
+      <img src="https://via.placeholder.com/80" alt="Materi" />
       <h2>Materi Terupdate</h2>
       <p>Kurikulum disesuaikan dengan perkembangan terbaru dan kebutuhan peserta.</p>
     </div>
     <div class="feature-card">
-      <img src="https://via.placeholder.com/80" alt="Dukungan">
+      <img src="https://via.placeholder.com/80" alt="Dukungan" />
       <h2>Dukungan Penuh</h2>
       <p>Konsultasi dan bantuan belajar tersedia setiap saat.</p>
     </div>
   </section>
 
   <section class="section">
-    <h2>Penawaran Spesial</h2>
-    <p>Dapatkan diskon khusus pendaftaran bulan ini dan ebook gratis untuk peserta baru!</p>
-  </section>
-
-  <section class="section services">
-    <div class="service">
-      <h3>Bimbingan Belajar</h3>
-      <p>Kelas intensif untuk berbagai mata pelajaran dan jenjang pendidikan.</p>
-      <div class="cardbox">
-        <div class="cardbox-item">
-          <h4>Esai</h4>
-          <p>Latihan menulis esai akademik.</p>
-          <button>Coba</button>
-        </div>
-        <div class="cardbox-item">
-          <h4>Karya Tulis</h4>
-          <p>Karya tulis ilmiah dan populer.</p>
-          <button>Coba</button>
-        </div>
-        <div class="cardbox-item">
-          <h4>Penelitian</h4>
-          <p>Proyek penelitian sistematis.</p>
-          <button>Coba</button>
-        </div>
-        <div class="cardbox-item">
-          <h4>CPNS</h4>
-          <p>Persiapan soal CPNS.</p>
-          <button>Coba</button>
-        </div>
+    <h2>Layanan Kami</h2>
+    <div class="cardbox" style="max-width: 900px; margin: auto;">
+      <div class="cardbox-item">
+        <h4>Bimbingan Belajar</h4>
+        <p class="description">Kelas intensif untuk meningkatkan kemampuan belajar dan persiapan kompetisi akademik.</p>
+        <ul>
+          <li>Menulis (Esai, Karya Tulis, Jurnal Ilmiah)</li>
+          <li>Lomba dan Olimpiade</li>
+          <li>CPNS dan Tes Kedinasan</li>
+        </ul>
+        <button>Coba</button>
       </div>
-    </div>
-    <div class="service">
-      <h3>Tryout</h3>
-      <p>Simulasi ujian dengan sistem terkini dan analisis hasil.</p>
-      <div class="cardbox">
-        <div class="cardbox-item">
-          <h4>CPNS</h4>
-          <p>Soal CPNS dan analisis.</p>
-          <button>Coba</button>
-        </div>
-      </div>
-    </div>
-    <div class="service">
-      <h3>Konsultasi</h3>
-      <p>Bimbingan karir dan akademik secara personal.</p>
-      <div class="cardbox">
-        <div class="cardbox-item">
-          <h4>Menulis</h4>
-          <p>Teknik menulis efektif.</p>
-          <button>Coba</button>
-        </div>
-        <div class="cardbox-item">
-          <h4>Beasiswa</h4>
-          <p>Panduan lolos seleksi beasiswa.</p>
-          <button>Coba</button>
-        </div>
+      <div class="cardbox-item">
+        <h4>Tryout</h4>
+        <p class="description">Simulasi ujian dengan sistem terkini untuk mempersiapkan berbagai tes penting.</p>
+        <ul>
+          <li>CPNS</li>
+          <li>UTBK</li>
+          <li>Olimpiade</li>
+        </ul>
+        <button>Coba</button>
       </div>
     </div>
   </section>
