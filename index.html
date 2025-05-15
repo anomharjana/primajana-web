@@ -174,25 +174,27 @@
 
     .testimonials {
       text-align: center;
+      overflow: hidden;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
     }
 
     .testimonial-carousel {
       display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      scroll-snap-type: x mandatory;
-      padding: 1rem 0;
-      scroll-behavior: smooth;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
     }
 
     .testimonial-item {
-      flex: 0 0 auto;
-      width: 250px;
+      flex: 0 0 50%;
+      box-sizing: border-box;
+      padding: 1rem;
       background-color: #f9f9f9;
       border-radius: 8px;
-      padding: 1rem;
-      scroll-snap-align: center;
+      margin: 0 0.5rem;
       box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      text-align: left;
     }
 
     .testimonial-item img {
@@ -200,11 +202,14 @@
       height: 50px;
       border-radius: 50%;
       margin-bottom: 0.5rem;
+      float: left;
+      margin-right: 0.75rem;
     }
 
     .testimonial-item blockquote {
       font-style: italic;
       font-size: 0.95rem;
+      overflow-wrap: break-word;
     }
 
     footer {
@@ -232,6 +237,13 @@
     @media(max-width: 767px) {
       .cardbox-item {
         width: 100%;
+      }
+      .testimonial-item {
+        flex: 0 0 100%;
+        margin: 0 0 1rem 0;
+      }
+      .testimonials {
+        max-width: 100%;
       }
     }
   </style>
@@ -313,6 +325,12 @@
           "Tryout-nya sangat membantu saya mengukur kemampuan. Recommended!"<br>– Aisyah, Peserta CPNS
         </blockquote>
       </div>
+      <div class="testimonial-item">
+        <img src="https://via.placeholder.com/50" alt="Foto Fajar" />
+        <blockquote>
+          "Pengajar yang sabar dan materi terstruktur membuat saya cepat paham."<br>– Fajar, Pelajar SMA
+        </blockquote>
+      </div>
     </div>
   </section>
 
@@ -327,22 +345,21 @@
   </footer>
 
   <script>
-    // Carousel otomatis
     const carousel = document.getElementById('testimonialCarousel');
-    let scrollAmount = 0;
+    const items = carousel.children.length;
+    const visibleItems = 2;
+    let index = 0;
 
-    function autoScroll() {
-      scrollAmount += 260;
-      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
-        scrollAmount = 0;
+    function slideCarousel() {
+      index++;
+      if (index > items - visibleItems) {
+        index = 0;
       }
-      carousel.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
+      const shift = -(index * (carousel.children[0].offsetWidth + 16)); // item width + margin (margin 0.5rem left & right = 1rem total; here 16px for gap)
+      carousel.style.transform = `translateX(${shift}px)`;
     }
 
-    setInterval(autoScroll, 3000); // Ganti testimoni setiap 3 detik
+    setInterval(slideCarousel, 3000);
   </script>
 </body>
 </html>
