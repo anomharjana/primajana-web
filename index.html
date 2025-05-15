@@ -78,6 +78,12 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(128, 0, 0, 0.3);
     }
 
     .feature-card img {
@@ -92,11 +98,11 @@
       flex-wrap: wrap;
       gap: 1rem;
       max-width: 900px;
-      margin: 1.5rem auto 0 auto;
+      margin: 2rem auto 0 auto;
     }
 
     .cardbox-item {
-      background-color: #800000;
+      background-color: #993333;
       color: #fff;
       padding: 1rem 1.25rem;
       border-radius: 8px;
@@ -134,21 +140,39 @@
       margin-bottom: 0.4rem;
     }
 
-    .cardbox-item button {
-      align-self: flex-start;
-      background-color: #fff;
-      color: #800000;
-      border: none;
+    .button-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
+    .button-group .primary,
+    .button-group .secondary {
       padding: 0.5rem 1rem;
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
+      border: none;
       transition: background 0.3s ease;
-      margin-top: auto;
     }
 
-    .cardbox-item button:hover {
+    .button-group .primary {
+      background-color: #fff;
+      color: #800000;
+    }
+
+    .button-group .primary:hover {
       background-color: #f1f1f1;
+    }
+
+    .button-group .secondary {
+      background-color: #ffd700;
+      color: #800000;
+    }
+
+    .button-group .secondary:hover {
+      background-color: #ffe866;
     }
 
     .testimonials blockquote {
@@ -192,7 +216,6 @@
     <img src="https://via.placeholder.com/100x50?text=Logo" alt="Primajana Logo" />
     <h1>Primajana Education</h1>
     <p>Solusi bimbingan belajar, tryout, dan konsultasi terbaik untuk pelajar dan umum</p>
-    <button class="cta-button">Daftar Sekarang</button>
   </header>
 
   <section class="section features">
@@ -224,7 +247,9 @@
           <li>Lomba dan Olimpiade</li>
           <li>CPNS dan Tes Kedinasan</li>
         </ul>
-        <button>Coba</button>
+        <div class="button-group">
+          <button class="primary">Daftar Sekarang</button>
+        </div>
       </div>
       <div class="cardbox-item">
         <h3>Tryout</h3>
@@ -234,7 +259,10 @@
           <li>UTBK</li>
           <li>Olimpiade</li>
         </ul>
-        <button>Coba</button>
+        <div class="button-group">
+          <button class="primary">Daftar Sekarang</button>
+          <button class="secondary">Coba Gratis</button>
+        </div>
       </div>
     </div>
   </section>
@@ -252,7 +280,7 @@
   <section class="section" style="text-align: center;">
     <h2>Siap Mulai Belajar?</h2>
     <p>Gabung bersama ratusan peserta lainnya yang telah merasakan manfaat Primajana Education.</p>
-    <button class="cta-button">Gabung Sekarang</button>
+    <button class="cta-button">Hubungi Admin</button>
   </section>
 
   <footer>
