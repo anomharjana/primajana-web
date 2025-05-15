@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hasil Ujian</title>
   <style>
     * {
@@ -252,9 +252,11 @@
 
     function lihatPembahasan() {
       const paketSoal = localStorage.getItem("paketSoal") || "";
-      const nomor = paketSoal.match(/\d+/);
-      if (nomor) {
-        const urlPembahasan = `pembahasan${nomor[0]}.html`;
+      const match = paketSoal.match(/paket(\d+)/i);
+
+      if (match && match[1]) {
+        const nomor = match[1];
+        const urlPembahasan = `pembahasan${nomor}.html`;
         window.location.href = urlPembahasan;
       } else {
         alert("Informasi paket soal tidak ditemukan.");
