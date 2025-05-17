@@ -126,7 +126,21 @@
       display: none;
     }
 
-    /* === Responsif Mobile === */
+    .kelulusan {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .kelulusan.lulus {
+      color: #008000; /* hijau */
+    }
+
+    .kelulusan.tidak-lulus {
+      color: #cc0000; /* merah */
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: row;
@@ -150,6 +164,11 @@
 
       .section table td {
         font-size: 14px;
+      }
+
+      .kelulusan {
+        font-size: 14px;
+        margin-top: 10px;
       }
     }
   </style>
@@ -180,6 +199,7 @@
           <tr><td>Nilai TKP</td><td id="tkp">: -</td></tr>
           <tr><td>Nilai Total</td><td id="total">: -</td></tr>
         </table>
+        <div id="statusKelulusan" class="kelulusan"></div>
       </div>
 
       <div class="footer">Terima Kasih Atas Partisipasi Anda</div>
@@ -218,6 +238,27 @@
     };
     const sesi = `Sesi (${now.toLocaleDateString('id-ID', sesiOptions)})`;
     document.getElementById("namaUjian").textContent = `: ${sesi}`;
+
+    // Fungsi untuk status kelulusan
+    function tampilkanStatusKelulusan(twk, tiu, tkp) {
+      const statusEl = document.getElementById("statusKelulusan");
+      const gagal = [];
+
+      if (twk < 65) gagal.push("TWK");
+      if (tiu < 80) gagal.push("TIU");
+      if (tkp < 166) gagal.push("TKP");
+
+      if (gagal.length === 0) {
+        statusEl.textContent = "Lulus";
+        statusEl.className = "kelulusan lulus";
+      } else {
+        const alasan = gagal.join(", ");
+        statusEl.textContent = `Tidak Lulus (Nilai ${alasan} di bawah ambang batas)`;
+        statusEl.className = "kelulusan tidak-lulus";
+      }
+    }
+
+    tampilkanStatusKelulusan(hasil.skorTWK, hasil.skorTIU, hasil.skorTKP);
 
     function getCurrentDateTime() {
       const now = new Date();
