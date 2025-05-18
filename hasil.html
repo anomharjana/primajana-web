@@ -134,11 +134,18 @@
     }
 
     .kelulusan.lulus {
-      color: #008000; /* hijau */
+      color: #008000;
     }
 
     .kelulusan.tidak-lulus {
-      color: #cc0000; /* merah */
+      color: #cc0000;
+    }
+
+    .passing-grade {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
     }
 
     @media (max-width: 600px) {
@@ -170,6 +177,10 @@
         font-size: 14px;
         margin-top: 10px;
       }
+
+      .passing-grade {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -199,6 +210,7 @@
           <tr><td>Nilai TKP</td><td id="tkp">: -</td></tr>
           <tr><td>Nilai Total</td><td id="total">: -</td></tr>
         </table>
+        <div class="passing-grade">Passing Grade: TWK ≥ 65 | TIU ≥ 80 | TKP ≥ 166</div>
         <div id="statusKelulusan" class="kelulusan"></div>
       </div>
 
@@ -222,7 +234,6 @@
       total: 0
     };
 
-    // Isi data peserta
     document.getElementById("namaPeserta").textContent = `: ${hasil.nama}`;
     document.getElementById("emailPeserta").textContent = `: ${hasil.email}`;
     document.getElementById("twk").textContent = `: ${hasil.skorTWK}`;
@@ -230,7 +241,6 @@
     document.getElementById("tkp").textContent = `: ${hasil.skorTKP}`;
     document.getElementById("total").textContent = `: ${hasil.total}`;
 
-    // Tampilkan sesi waktu ujian
     const now = new Date();
     const sesiOptions = {
       weekday: 'long', year: 'numeric', month: 'long',
@@ -239,7 +249,6 @@
     const sesi = `Sesi (${now.toLocaleDateString('id-ID', sesiOptions)})`;
     document.getElementById("namaUjian").textContent = `: ${sesi}`;
 
-    // Fungsi untuk status kelulusan
     function tampilkanStatusKelulusan(twk, tiu, tkp) {
       const statusEl = document.getElementById("statusKelulusan");
       const gagal = [];
@@ -306,3 +315,4 @@
   </script>
 </body>
 </html>
+
